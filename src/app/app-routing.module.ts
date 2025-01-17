@@ -1,7 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CoinListComponent } from './feature/coin-list/coin-list.component';
+import { CoinDetailsComponent } from './feature/coin-details/coin-details.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {path:'', redirectTo : 'coin-list', pathMatch:'full'},
+  {path:'coin-list', component:CoinListComponent},
+  {path:'coin-details', component:CoinDetailsComponent}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

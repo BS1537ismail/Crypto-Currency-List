@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CurrencyService } from './service/currency.service';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'Crypto-Currency-Price-Tracker';
+    selectedCurrency: string = "BDT";
+    constructor(private currencyService : CurrencyService){
+      
+    }
+    sendCurrency(event:string){
+      this.currencyService.setCurrency(event);
+  }
 }
