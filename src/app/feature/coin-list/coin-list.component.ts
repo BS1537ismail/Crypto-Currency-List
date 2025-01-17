@@ -59,4 +59,7 @@ export class CoinListComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
+  goDetails(row : any){
+    this.router.navigate(['coin-details', row.id]);
+  }
 }
