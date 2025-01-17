@@ -1,1 +1,32 @@
-<p>coin-details works!</p>
+
+<div class="cointainer-fluid">
+    <div class="row">
+        <div class="col-md-3 details">
+            <div class="img">
+                <img [src]="coinData?.image?.large" alt="">
+                <h3 class="text-center" style="font-size: 23px;">{{coinData?.name}}</h3>
+                <h5 [innerHtml]="coinData?.description?.en.split('. ')[0]"></h5>
+                <div class="more-details">
+                    <span class="title">Rank: </span><span class="value">{{coinData?.market_cap_rank}}</span> <br/>
+                    <span class="title">Current Price: </span><span class="value">{{coinData?.market_data.current_price.bdt | currency:currency }}</span><br/>
+                    <span class="title">Market Cap: </span><span class="value">{{coinData?.market_data.market_cap.bdt | currency:currency}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <canvas style="width: 300px;"
+             baseChart 
+             [data]="lineChartData"
+             [options]="lineChartOptions"
+             [type]="lineChartType">
+            </canvas>
+            <div class="d-flex justify-content-around">
+                <button class="btn btn-custom" (click)="getGraphData(1)">24H</button>
+                <button class="btn btn-custom" (click)="getGraphData(30)">1Month</button>
+                <button class="btn btn-custom" (click)="getGraphData(180)">6Months</button>
+                <button class="btn btn-custom" (click)="getGraphData(365)">1Year</button>
+            </div>
+        </div>
+    </div>
+    
+</div>
